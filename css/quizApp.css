@@ -1,0 +1,49 @@
+h1, h2, p, li{
+	text-align: center;
+}
+
+li {
+	text-align: left-justify;
+}
+
+.button {
+	text-align:center;
+	margin-top: 50px;
+}
+
+button {
+	width: 150px;
+	height: 50px;
+	border-radius: 4px;
+}
+
+h1 {
+	margin-top: 300px;
+}
+
+.instructions {
+	color: blue;
+	margin-top: 45px;
+}
+
+.question-list-1, .question-list-2, .question-list-3, .question-list-4, .question-list-5 {
+	width: 300px;
+	border: solid 1px red;
+	margin: auto;
+	text-align: left;
+	margin-top: 100px;
+}
+
+.question-list-1 li, .question-list-2 li, .question-list-3 li, .question-list-4 li, .question-list-5 li {
+	text-align: left;
+	margin-left: 50px;
+}
+
+.checkbox {
+	margin-right: 30px;
+}
+
+ul {
+	list-style-type: none;
+
+}
