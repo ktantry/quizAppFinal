@@ -1,12 +1,21 @@
 $(document).ready(function(){
 	$('body').css('background-color', 'green');
 
+//Store answers in objects here
+
+
+// Button to start over quiz. Refresh.
+	$('.start-over-button').click(function() {
+         location.reload();
+	});
+
 	var clickCount = 0;
 
-		$('.button').mousedown(function() {
+// Mousedown function to determine the quiz flow
+		$('.begin').mousedown(function() {
 			clickCount++;
 			if(clickCount == 1) {
-				$('button').text('submit');
+				$('.begin-button').text('submit');
 				$('h2').text('Which male tennis player has won the most grand slams?');
 				$('h2').css('margin-top', '300px');
 				$('h1').hide();
@@ -21,7 +30,7 @@ $(document).ready(function(){
 		}
 			else if(clickCount == 2) {
 				$('.question-list-1').hide();
-				$('button').text('submit');
+				$('.begin-button').text('submit');
 				$('h2').text('Which female tennis player has won the most grand slams?');
 				$('h2').css('margin-top', '300px');
 				$('h1').hide();
@@ -37,7 +46,7 @@ $(document).ready(function(){
 			else if(clickCount == 3) {
 				$('.question-list-1').hide();
 				$('.question-list-2').hide();
-				$('button').text('submit');
+				$('.begin-button').text('submit');
 				$('h2').text('Which male tennis player has won the most French Opens?');
 				$('h2').css('margin-top', '300px');
 				$('h1').hide();
@@ -55,7 +64,7 @@ $(document).ready(function(){
 				$('.question-list-1').hide();
 				$('.question-list-2').hide();
 				$('.question-list-3').hide();
-				$('button').text('submit');
+				$('.begin-button').text('submit');
 				$('h2').text('Who won the Australian Open in 2015?');
 				$('h2').css('margin-top', '300px');
 				$('h1').hide();
@@ -74,7 +83,7 @@ $(document).ready(function(){
 				$('.question-list-2').hide();
 				$('.question-list-3').hide();
 				$('.question-list-4').hide();
-				$('button').text('submit');
+				$('.begin-button').text('submit');
 				$('h2').text("What is Nadal's head to head record vs. Federer");
 				$('h2').css('margin-top', '300px');
 				$('h1').hide();
@@ -87,23 +96,24 @@ $(document).ready(function(){
 				"<li class='question-d'><input type='checkbox'>D. Brian Scalabrine</li>"+
 				"</ul></div>");
 		}
-
+			//final page
 			else if(clickCount == 6) {
 				$('.question-list-1').hide();
 				$('.question-list-2').hide();
 				$('.question-list-3').hide();
 				$('.question-list-4').hide();
 				$('.question-list-5').hide();
-				$('button').hide();
+				$('.begin-button').hide();
 				$('h2').hide();
 				$('.instructions').hide();
-				$('h1').show().animate();
-				$('h1').text('Congratulations! You answered X out of 5 questions correctly.')
-				
+				$('h1').show().text('Congratulations! You answered X out of 5 questions correctly.')				
 		}
+
+		//Create logic to determine their score
 
 
 		});
+
 
 
 });
