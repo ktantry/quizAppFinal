@@ -22,7 +22,7 @@ $(document).ready(function(){
 	var question5 = new Question("What is Nadal's head to head record vs. Federer", 'C. 23-10');
 
 	//Store questions in an array here
-	var question_array = [question1.question, question2.question, question3.question, question4.question, question5.question];
+	var question_array = [question1, question2, question3, question4, question5];
 
 	//Create 5 answers arrays
 	var answers1 = ['A. Rafael Nadal','B. John McEnroe','C. Roger Federer','D. Brian Scalabrine'];
@@ -33,31 +33,49 @@ $(document).ready(function(){
 
 	var answers_array = [answers1, answers2, answers3, answers4, answers5];
 
-	console.log(answers1[1]);
-	console.log(answers_array[0][0]);
 
 	var clickCount = 0;
+	var total_correct = 0;
 
 // Mousedown function to determine the quiz flow
 		$('.begin').mousedown(function() {
+			
+			if (clickCount <= answers_array.length && clickCount > 0) {
+				var checked_input = ($('.question-list-1 input:checked').val());
+				var correct_answer = question_array[clickCount-1].answer;
+
+				console.log(checked_input);
+				console.log(correct_answer);
+
+				if (checked_input == correct_answer) {
+					total_correct++;
+					console.log(total_correct);
+				}
+			}
+
+/*			console.log($('.question-list-1 input:checked').val());*/
 			if (clickCount < answers_array.length) {
 				$('.begin-button').text('submit');	
 				$('h2').css('margin-top', '300px');
 				$('h1').hide();
-				$('h2').text(question_array[clickCount]);
+				$('h2').text(question_array[clickCount].question);
 
 				$(".instructions").html("<div class = 'question-list-1'><ul>"+
-				"<li class='question-a'><input type='checkbox'></li>"+
-				"<li class='question-b'><input type='checkbox'></li>"+
-				"<li class='question-c'><input type='checkbox'></li>"+
-				"<li class='question-d'><input type='checkbox'></li>"+
+				"<li class='question-a'><input type='radio' name='Question'></li>"+
+				"<li class='question-b'><input type='radio' name='Question'></li>"+
+				"<li class='question-c'><input type='radio' name='Question'></li>"+
+				"<li class='question-d'><input type='radio' name='Question'></li>"+
 				"</ul></div>");
 
 				$('.question-a').append(answers_array[clickCount][0]);
 				$('.question-b').append(answers_array[clickCount][1]);
 				$('.question-c').append(answers_array[clickCount][2]);
 				$('.question-d').append(answers_array[clickCount][3]);
-				console.log($('.question-a input'));
+
+				$('.question-a input').val(answers_array[clickCount][0]);
+				$('.question-b input').val(answers_array[clickCount][1]);
+				$('.question-c input').val(answers_array[clickCount][2]);
+				$('.question-d input').val(answers_array[clickCount][3]);
 			}
 
 			else {
@@ -67,10 +85,11 @@ $(document).ready(function(){
 				$('.instructions').hide();
 				$('h1').show().text('Congratulations! You answered X out of 5 questions correctly.')		
 			}
-			console.log(clickCount);
-			clickCount++;	
 
-			
-		});		
+			clickCount++;	
+		
+		});	
+
+		
 
 	});			
