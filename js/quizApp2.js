@@ -44,6 +44,7 @@ $(document).ready(function(){
 				$('.begin-button').text('submit');	
 				$('h2').css('margin-top', '300px');
 				$('h1').hide();
+				$('.instructions').text('Submit your answer below');
 				$('h2').text(question_array[clickCount]);
 
 				$(".instructions").html("<div class = 'question-list-1'><ul>"+
