@@ -39,21 +39,26 @@ $(document).ready(function(){
 
 // Mousedown function to determine the quiz flow
 		$('.begin').mousedown(function() {
-			
+			console.log(total_correct);
+			$('.number-question').html("<p>You are on question " + [clickCount + 1] + " of 5</p>")
+
 			if (clickCount <= answers_array.length && clickCount > 0) {
 				var checked_input = ($('.question-list-1 input:checked').val());
 				var correct_answer = question_array[clickCount-1].answer;
-
+-
 				console.log(checked_input);
 				console.log(correct_answer);
 
 				if (checked_input == correct_answer) {
 					total_correct++;
-					console.log(total_correct);
+					$('.right-wrong').html("<p>You got the last question right</p>")	
 				}
+				else {
+					$('.right-wrong').html("<p>You got the last question wrong</p>")
+				}
+				$('.number-correct').html("<p>You have gotten " + total_correct + " out of " + [clickCount] + " questions correct so far</p>")
 			}
 
-/*			console.log($('.question-list-1 input:checked').val());*/
 			if (clickCount < answers_array.length) {
 				$('.begin-button').text('submit');	
 				$('h2').css('margin-top', '300px');
@@ -83,7 +88,10 @@ $(document).ready(function(){
 				$('.begin-button').hide();
 				$('h2').hide();
 				$('.instructions').hide();
-				$('h1').show().text('Congratulations! You answered X out of 5 questions correctly.')		
+				$('h1').show().text("Congratulations! You answered " + total_correct + " out of 5 questions correctly.")
+				$('.number-question').hide();	
+				$('.number-correct').hide();
+				$('.right-wrong').hide();	
 			}
 
 			clickCount++;	
