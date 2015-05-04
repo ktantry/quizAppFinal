@@ -2,11 +2,16 @@ h1, h2, p, li{
 	text-align: center;
 }
 
+body {
+	/* background-image: url('http://static.sportskeeda.com/wp-content/uploads/2014/03/roger-federer2-2142450.jpg'); */
+	background-size: cover;
+}
+
 li {
 	text-align: left-justify;
 }
 
-.begin {
+.begin, .next-question, .results {
 	text-align:center;
 	margin-top: 50px;
 }
@@ -16,7 +21,7 @@ li {
 	float: right;
 }
 
-.begin-button {
+.begin-button, .next-question-button, .results-button{
 	width: 150px;
 	height: 50px;
 	border-radius: 4px;
